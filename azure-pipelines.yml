@@ -13,12 +13,12 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
-
-- task: CopyFiles@2
+- task: DotNetCoreCLI@2
   inputs:
-    SourceFolder: '$(Build.SourcesDirectory)/webapp1'
-    Contents: '**'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    command: 'pack'
+    packagesToPack: '**/*.csproj'
+    versioningScheme: 'off'
+
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
