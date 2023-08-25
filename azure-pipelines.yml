@@ -14,11 +14,6 @@ steps:
   inputs:
     command: 'build'
 
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'publish'
-    publishWebProjects: true
-
 - task: CopyFiles@2
   inputs:
     SourceFolder: 'Build.SourcesDirectory'
